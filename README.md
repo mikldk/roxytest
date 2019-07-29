@@ -81,6 +81,7 @@ test_that("Function bar()", {
 * `roxygen2`: 
     + In `DESCRIPTION`, `Roxygen: list(roclets = c("namespace", "rd", "testthat_roclet"))` must be added. It would be more consistent to omit `_roclet`.
     + It would be convenient to avoid the need to call `library(roxytest)` first.
+    + Easier test; `roxygen2` uses `roxygen2::roc_proc_text`; it would be nice to be able to use multiple roclets
 
 
 
