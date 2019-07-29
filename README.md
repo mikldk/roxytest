@@ -80,7 +80,7 @@ test_that("Function bar()", {
     + Project options -> Build tools -> If all check marks are removed, nothing happens with CTRL+SHIFT+D. If instead `devtools::document()` would be ran it would work.
 * `roxygen2`: 
     + In `DESCRIPTION`, `Roxygen: list(roclets = c("namespace", "rd", "testthat_roclet"))` must be added. It would be more consistent to omit `_roclet`.
-    + It would be convenient to avoid the need to call `library(roxytest)` first.
+    + It would be convenient to avoid the need to call `library(roxytest)` first. Maybe by specifying `roxytest::testthat` as roclet.
     + Easier test; `roxygen2` uses `roxygen2::roc_proc_text`; it would be nice to be able to use multiple roclets
 
 
