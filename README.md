@@ -16,8 +16,8 @@ Roxygen: list(roclets = c("namespace", "rd", "testthat_roclet"))
 ```
 (Or make appropriate changes to obtain similar results.)
 
-And the run the following:
-```
+And the run the following (note the need to first load the `roxytest` library):
+```r
 library(roxytest)
 roxygen2::roxygenise()
 ```
