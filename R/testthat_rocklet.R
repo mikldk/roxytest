@@ -43,7 +43,7 @@ roclet_process.roclet_testthat <- function(x,
                                   env = env, 
                                   global_options = global_options)
 
-    if (is.null(testthat$filename) || is.null(testthat$test)) {
+    if (is.null(testthat$filename) || is.null(testthat$tests)) {
       next
     }
     
@@ -58,13 +58,13 @@ roclet_process.roclet_testthat <- function(x,
 block_to_testthat <- function(block, base_path, env, global_options = list()) {
   testthat_file <- list()
   
-  test <- if (!is.null(block$test)) {
-    test <- block$test
+  tests <- if (!is.null(block$tests)) {
+    tests <- block$tests
   } else {
     NULL
   }
   
-  testthat_file$test <- test
+  testthat_file$tests <- tests
   
   filename <- basename(attr(block, "filename"))
   testthat_file$filename <- filename
@@ -89,14 +89,14 @@ roclet_output.roclet_testthat <- function(x, results, base_path, ..., is_first =
     path <- file.path(testthat_path, paste0("test-roxytest-", paths[i]))
     
     contents <- lapply(results[[i]], function(result) {
-      test <- result$test
-      test <- gsub("^\\s*(.*?)\\s*$", "\\1", test)
-      test_indented <- paste0("  ", gsub("\n", "\n  ", test, fixed = TRUE))
-      test_name <- paste0("Function ", 
+      tests <- result$tests
+      tests <- gsub("^\\s*(.*?)\\s*$", "\\1", tests)
+      tests_indented <- paste0("  ", gsub("\n", "\n  ", tests, fixed = TRUE))
+      tests_name <- paste0("Function ", 
                           roxygen2:::quote_if_needed(result$functionname), "()")
 
-      paste0('test_that("', test_name, '", {', "\n", 
-             test_indented, "\n",
+      paste0('test_that("', tests_name, '", {', "\n", 
+             tests_indented, "\n",
              "})\n")
     })
     
