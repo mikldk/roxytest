@@ -113,8 +113,6 @@ roclet_output.roclet_testthat <- function(x, results, base_path, ..., is_first =
   
   testthat_path <- normalizePath(file.path(base_path, "tests", "testthat"))
   
-  print(results)
-  
   paths <- names(results)
   
   for (i in seq_along(results)) {    
