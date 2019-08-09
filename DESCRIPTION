@@ -3,16 +3,16 @@ Type: Package
 Title: Inline testthat tests with roxygen2
 Version: 0.0.0.9020
 Authors@R: c(
-    person(given = "Mikkel Meyer", family = "Andersen", 
-        email = "mikl@math.aau.dk", role = c("aut", "cre"))
+  person(given = "Mikkel Meyer", family = "Andersen", 
+         email = "mikl@math.aau.dk", role = c("aut", "cre"))
   )
 Author: Mikkel Meyer Andersen [aut, cre]
 Maintainer: Mikkel Meyer Andersen <mikl@math.aau.dk>
 Description: Add testthat tests to a package using roxygen2 rocklets
 License: GPL (>= 2)
 Imports:
-    roxygen2, 
-    testthat
+  roxygen2, 
+  testthat
 Depends:
   R (>= 2.10)
 Suggests: knitr, rmarkdown, testthat
@@ -21,4 +21,4 @@ VignetteBuilder: knitr
 LazyData: true
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))
-RoxygenNote: 6.1.1
+RoxygenNote: 6.1.1.9000

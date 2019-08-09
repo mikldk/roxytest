@@ -118,6 +118,13 @@ roclet_output.roclet_testthat <- function(x, results, base_path, ..., is_first =
   for (i in seq_along(results)) {    
     path <- file.path(testthat_path, paste0("test-roxytest-", paths[i]))
     
+    if (file.exists(path)) {
+      warning(paste0("The file '", path, "' was not created by roxytest (wrong header), ", 
+                     "and hence was not modified as planned. ",
+                     "Please be sure that this is intended."))
+      next
+    }
+    
     content <- results[[i]]
     
     writeLines(text = enc2utf8(content), 
@@ -138,6 +145,13 @@ roclet_clean.roclet_testthat <- function(x, base_path) {
   testfiles <- testfiles[!file.info(testfiles)$isdir]
   
   made_by_me <- vapply(testfiles, made_by_roxytest, logical(1))
+  
+  if (sum(!made_by_me) > 0) {
+    warning(paste0("Clean-up: Some files in tests/testthat/ with the file name pattern ", 
+                   "test-roxytest-*.R was not created by roxytest (missing header), ", 
+                   "and hence was not removed. ",
+                   "Please be sure that this is intended."))
+  }
   
   unlink(testfiles[made_by_me])
 }

@@ -9,16 +9,17 @@ See demo package using this at [roxytest-demo](https://github.com/mikldk/roxytes
 Add the following lines to your package's `DESCRIPTION` file:
 ```
 Imports:
-    roxygen2, 
-    testthat,
-    roxytest
-Roxygen: list(roclets = c("namespace", "rd", "testthat_roclet"))
+  roxygen2, 
+  testthat
+Depends:
+  R (>= 2.10),
+  roxytest
+Roxygen: list(roclets = c("namespace", "rd", "roxytest::testthat_roclet"))
 ```
-(Or make appropriate changes to obtain similar results.)
+(Or make appropriate changes to obtain similar results.) The reason that `roxytest` is in `Depends` rather than in `Imports` is to attach the package immediately.
 
-And the run the following (note the need to first load the `roxytest` library):
+Then run the following:
 ```r
-library(roxytest)
 roxygen2::roxygenise()
 ```
  
@@ -76,12 +77,10 @@ test_that("Function bar()", {
 
 ## Wish-list
 
+
 * Rstudio: CTRL+SHIFT+D would run `roxygen2::roxygenise()` instead of `devtools::document(roclets=c('rd', 'collate', 'namespace'))`
     + Project options -> Build tools -> If all check marks are removed, nothing happens with CTRL+SHIFT+D. If instead `devtools::document()` would be ran it would work.
-* `roxygen2`: 
-    + In `DESCRIPTION`, `Roxygen: list(roclets = c("namespace", "rd", "testthat_roclet"))` must be added. It would be more consistent to omit `_roclet`.
-    + It would be convenient to avoid the need to call `library(roxytest)` first. Maybe by specifying `roxytest::testthat` as roclet.
+* `roxygen2` (see <https://github.com/r-lib/roxygen2/issues/891>): 
+    + In `DESCRIPTION`, `Roxygen: list(roclets = c("namespace", "rd", "roxytest::testthat_roclet"))` must be added. It would be more consistent to omit `_roclet`.
     + Easier test; `roxygen2` uses `roxygen2::roc_proc_text`; it would be nice to be able to use multiple roclets
-
-
 
