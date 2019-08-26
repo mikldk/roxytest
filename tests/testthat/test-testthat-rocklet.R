@@ -1,4 +1,4 @@
-context("Smoke")
+context("testthat roclet")
 
 
 test_that("@tests captures tests", {

@@ -15,8 +15,11 @@ but will instead use roxygenise() specifying the testthat roclet
 }
 \seealso{
 Other roclets:
+\code{\link{param_roclet}},
 \code{\link[roxygen2]{namespace_roclet}},
 \code{\link[roxygen2]{rd_roclet}},
 \code{\link[roxygen2]{vignette_roclet}}.
+
+Other roclets: \code{\link{param_roclet}}
 }
 \concept{roclets}

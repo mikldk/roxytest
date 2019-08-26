@@ -6,6 +6,8 @@ See demo package using this at [roxytest-demo](https://github.com/mikldk/roxytes
 
 ## Usage
 
+### `testthat` roclet
+
 Add the following lines to your package's `DESCRIPTION` file:
 ```
 Imports:
@@ -22,9 +24,16 @@ Then run the following:
 ```r
 roxygen2::roxygenise()
 ```
- 
 
+### Other roclets
+
+Besides the `testthat_roclet`, there is also a `param_roclet` (see below).
+This can be included by adding it to `Roxygen` in the  `DESCRIPTION` file just like 
+`roxytest::testthat_roclet` was added above.
+ 
 ## Example
+
+### `testthat` roclet
 
 For example, if the file `R/functions.R` contains this code (from [roxytest-demo](https://github.com/mikldk/roxytest-demo)):
 
@@ -74,6 +83,31 @@ test_that("Function bar()", {
   expect_equal(bar("A", "B"), paste("A", "B", sep = "/"))
 })
 ```
+
+### Other roclets
+
+
+To demonstrate the `param_roclet` roclet assume that this block of documentation exists:
+
+```r
+#' Summing two numbers
+#'
+#' @param x A number
+f <- function(x, y) {
+  x + y
+}
+```
+
+When the package is documented, the following output will be displayed:
+
+```
+Functions with @param inconsistency:
+  * Function 'f' with title 'Summing two numbers' [in '/tmp/RtmpD1pt6C/file236720a7cef0']: 
+    - Missing @param's: y
+```
+
+Similarly if there are too many documented arguments.
+
 
 ## Wish-list
 
