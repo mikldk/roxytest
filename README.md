@@ -12,8 +12,10 @@ See demo package using this at
 
 There are a number of roclets included:
 
-  - `testthat_roclet`:
-  - `param_roclet`:
+  - `testthat_roclet`: Write [`testthat`](https://testthat.r-lib.org/)
+    tests in the [`roxygen2`](https://roxygen2.r-lib.org/) documentation
+  - `param_roclet`: Checks for consistency in documentation of
+    parameters (too many/too few)
 
 To use the package, add `roxytest` to `Imports` in the package’s
 `DESCRIPTION` file, e.g.:
