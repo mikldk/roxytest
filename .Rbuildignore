@@ -9,3 +9,4 @@
 ^docs
 ^codemeta\.json$
 ^paper\.*
+^README\.Rmd$

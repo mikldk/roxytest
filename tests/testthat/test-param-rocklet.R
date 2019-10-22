@@ -1,7 +1,6 @@
 context("param roclet")
 
 test_that("All good", {
-  
   out <- roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     #'
@@ -10,12 +9,13 @@ test_that("All good", {
     f <- function(x, y) {
       x + y
     }")
-  
   expect_equal(out, list())
+  
+  out <- roxygen2::roclet_output(param_roclet(), out)
+  expect_equal(out, NULL)
 })
 
 test_that("Missing documentation of 'y' parameter", {
-  
   out <- roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     #'
@@ -23,11 +23,10 @@ test_that("Missing documentation of 'y' parameter", {
     f <- function(x, y) {
       x + y
     }")
-  
   expect_equal(length(out), 1L)
   
   out_str <- gsub("\\[.*\\]", "", out[[1L]])
-  expect_equal(out_str, "Function 'f' with title 'Summing two numbers' : \n    - Missing @param's: y")
+  expect_equal(out_str, "Function 'f' with title 'Summing two numbers': \n    - Missing @param's: y")
 })
 
 test_that("Additional documentation for 'z' parameter", {
@@ -45,5 +44,6 @@ test_that("Additional documentation for 'z' parameter", {
   expect_equal(length(out), 1L)
   
   out_str <- gsub("\\[.*\\]", "", out[[1L]])
-  expect_equal(out_str, "Function 'f' with title 'Summing two numbers' : \n    + Too many @param's: z")
+  expect_equal(out_str, "Function 'f' with title 'Summing two numbers': \n    + Too many @param's: z")
 })
+
