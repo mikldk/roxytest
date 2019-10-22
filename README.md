@@ -147,7 +147,8 @@ Similarly if there are too many documented arguments.
 
 ## Wish-list
 
-  - Rstudio: CTRL+SHIFT+D would run `roxygen2::roxygenise()` instead of
+  - Rstudio: CTRL+SHIFT+D option to run
+    `devtools::document()`/`roxygen2::roxygenise()` instead of
     `devtools::document(roclets=c('rd', 'collate', 'namespace'))`
       - Project options -\> Build tools -\> If all check marks are
         removed, nothing happens with CTRL+SHIFT+D. If instead
