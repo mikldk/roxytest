@@ -28,6 +28,7 @@ param_roclet <- function() {
 
 #' @importFrom roxygen2 block_get_tags block_get_tag_value
 #' @importFrom roxygen2 roclet_process
+#' @importFrom methods formalArgs
 #' 
 #' @export
 roclet_process.roclet_param <- function(x, blocks, env, base_path) {
@@ -36,7 +37,7 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
   for (block in blocks) {
     block_obj <- block$object
     
-    if (!is(block_obj, "function")) {
+    if (!is.function(block_obj)) {
       next
     }
     

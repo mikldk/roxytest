@@ -4,21 +4,21 @@ Title: Various Tests with 'roxygen2'
 Version: 0.0.0.9021
 Authors@R: c(
   person(given = "Mikkel Meyer", family = "Andersen", 
-         email = "mikl@math.aau.dk", role = c("aut", "cre"))
+         email = "mikl@math.aau.dk", role = c("aut", "cre")),
+  person(given = "Ege", family = "Rubak", 
+         email = "rubak@math.aau.dk", role = c("ctb"))
   )
-Author: Mikkel Meyer Andersen [aut, cre]
 Maintainer: Mikkel Meyer Andersen <mikl@math.aau.dk>
 Description: Various tests as 'roxygen2' roclets: e.g. 'testthat' tests.
 License: GPL (>= 2)
 Imports:
   roxygen2, 
-  testthat
+  methods,
+  stringr
 Depends:
   R (>= 2.10)
-Suggests: knitr, rmarkdown, testthat
+Suggests: testthat
 BugReports: https://github.com/mikldk/roxytest/issues
-VignetteBuilder: knitr
-LazyData: true
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))
-RoxygenNote: 6.1.99.9001
+RoxygenNote: 7.0.2

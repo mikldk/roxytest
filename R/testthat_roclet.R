@@ -1,7 +1,7 @@
 # Adapted from roxygen2's
 # https://github.com/klutometis/roxygen/blob/master/R/rd.R
 
-#' @importFrom roxygen2 roxy_tag_parse
+#' @importFrom roxygen2 roxy_tag_parse roxy_tag_warning
 #' @export
 roxy_tag_parse.roxy_tag_tests <- function(x) {
   if (x$raw == "") {

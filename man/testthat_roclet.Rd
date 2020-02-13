@@ -20,6 +20,7 @@ Other roclets:
 \code{\link[roxygen2]{rd_roclet}},
 \code{\link[roxygen2]{vignette_roclet}}.
 
-Other roclets: \code{\link{param_roclet}()}
+Other roclets: 
+\code{\link{param_roclet}()}
 }
 \concept{roclets}
