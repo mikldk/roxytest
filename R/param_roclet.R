@@ -37,7 +37,7 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
   for (block in blocks) {
     block_obj <- block$object
     
-    if (!is.function(block_obj)) {
+    if (!inherits(block_obj, "function")) {
       next
     }
     
