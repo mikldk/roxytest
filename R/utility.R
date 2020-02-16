@@ -1,6 +1,5 @@
 # From roxygen2's R/utils.R:
 
-#' @importFrom stringr str_detect
 has_quotes <- function (x) {
   #stringr::str_detect(x, "^('|\").*\\1$")
   grepl("^('|\").*\\1$", x)
