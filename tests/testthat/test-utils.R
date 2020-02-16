@@ -1,0 +1,15 @@
+test_that("has_quotes", {
+  expect_false(has_quotes('asd'))
+  expect_false(has_quotes('"asd'))
+  expect_false(has_quotes('asd"'))
+  expect_false(has_quotes('as"d'))
+  expect_false(has_quotes('a"s"d'))
+  expect_false(has_quotes("'asd"))
+  expect_false(has_quotes("asd'"))
+  expect_false(has_quotes("as'd'"))
+  expect_true(all(!has_quotes(c('asd', "asd"))))
+  
+  expect_true(has_quotes('"asd"'))
+  expect_true(has_quotes("'asd'"))
+  expect_true(all(has_quotes(c('"asd"', "'asd'"))))
+})
