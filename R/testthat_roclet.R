@@ -5,7 +5,7 @@
 #' producing the testthat test files specified.
 #' 
 #' Generally you will not call this function directly
-#' but will instead use roxygenise() specifying the testthat roclet
+#' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
 #' @seealso Other roclets:
 #' \code{\link{param_roclet}}, 

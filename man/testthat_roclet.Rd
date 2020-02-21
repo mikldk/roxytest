@@ -11,7 +11,7 @@ This roclet is the workhorse of roxytest,
 producing the testthat test files specified.
 
 Generally you will not call this function directly
-but will instead use roxygenise() specifying the testthat roclet
+but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} specifying this roclet.
 }
 \seealso{
 Other roclets:
@@ -21,6 +21,7 @@ Other roclets:
 \code{\link[roxygen2]{vignette_roclet}}.
 
 Other roclets: 
-\code{\link{param_roclet}()}
+\code{\link{param_roclet}()},
+\code{\link{return_roclet}()}
 }
 \concept{roclets}

@@ -14,4 +14,3 @@ auto_quote <- function (x) {
   x[needs_quotes] <- encodeString(x[needs_quotes], quote = "\"")
   x
 }
-

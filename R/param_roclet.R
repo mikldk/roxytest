@@ -1,8 +1,3 @@
-# Resulting from 
-# https://github.com/r-lib/roxygen2/issues/882
-# and
-# https://github.com/mikldk/roxygen2/commit/231018c62a0ea8684e41df2f474095e1cd898484
-
 #' Roclet: check consistency of `param` documentation
 #'
 #' @family roclets
@@ -11,7 +6,7 @@
 #' an R CMD check.
 #' 
 #' Generally you will not call this function directly
-#' but will instead use roxygenise() specifying the testthat roclet
+#' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
 #' @seealso Other roclets:
 #' \code{\link{testthat_roclet}}, 
@@ -65,24 +60,16 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
       }
       
       block_title <- roxygen2::block_get_tag_value(block, "title")
-      warn <- paste0("Function '", func_name, "' with title '", block_title, "'", file_nm, msg)
+      warn <- paste0("Function '", func_name, "()' with title '", block_title, "'", file_nm, msg)
       warns <- c(warns, warn)
     }
   }
   
-  return(warns)
-}
-
-#' @importFrom roxygen2 roclet_output
-#' @export
-roclet_output.roclet_param <- function(x, results, base_path, ...) {
-  if (length(results) == 0L) {
-    return(invisible(NULL))
+  if (length(warns) > 0L) {
+    cat("Functions with @param inconsistency:\n")
+    cat(paste0("  * ", warns, collapse = "\n"), sep = "")
+    cat("\n")
   }
   
-  cat("Functions with @param inconsistency:\n")
-  cat(paste0("  * ", results, collapse = "\n"), sep = "")
-  
-  return(invisible(NULL))
+  return(NULL)
 }
-

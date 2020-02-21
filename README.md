@@ -6,7 +6,7 @@
 Inline tests with roxygen and testthat.
 
 See demo package using this at
-[roxytest-demo](https://github.com/mikldk/roxytest-demo).
+[roxytestdemo](https://github.com/mikldk/roxytestdemo).
 
 ## Usage
 
@@ -82,7 +82,7 @@ roxygen2::roxygenise()
 ### `testthat` roclet
 
 For example, if the file `R/functions.R` contains this code (from
-[roxytest-demo](https://github.com/mikldk/roxytest-demo)):
+[roxytestdemo](https://github.com/mikldk/roxytestdemo)):
 
 ``` r
 #' A function to do x
@@ -153,6 +153,27 @@ When the package is documented, the following output will be displayed:
         - Missing @param's: y
 
 Similarly if there are too many documented arguments.
+
+### `return` roclet
+
+To demonstrate the `return_roclet` roclet assume that this block of
+documentation exists:
+
+``` r
+#' Summing two numbers
+#'
+#' @param x A number
+#' 
+#' @export
+foobar2 <- function(x, y) {
+  x + y
+}
+```
+
+When the package is documented, the following output will be displayed:
+
+    Functions with @export but no @return:
+      * Function 'foobar2()' with title 'Summing two numbers'
 
 ## Wish-list
 
