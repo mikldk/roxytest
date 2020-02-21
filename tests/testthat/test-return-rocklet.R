@@ -3,7 +3,10 @@ context("return roclet")
 test_that("All good", {
   out <- roxygen2::roc_proc_text(return_roclet(), "
     #' Summing two numbers
-    #'
+    #' 
+    #' @examples
+    #' f(2, 2)
+    #' 
     #' @return None
     #' 
     #' @export

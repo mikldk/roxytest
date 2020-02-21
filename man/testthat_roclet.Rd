@@ -21,6 +21,7 @@ Other roclets:
 \code{\link[roxygen2]{vignette_roclet}}.
 
 Other roclets: 
+\code{\link{examples_roclet}()},
 \code{\link{param_roclet}()},
 \code{\link{return_roclet}()}
 }

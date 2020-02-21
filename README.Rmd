@@ -25,6 +25,7 @@ There are a number of roclets included:
 * `testthat_roclet`: Write [`testthat`](https://testthat.r-lib.org/) tests in the [`roxygen2`](https://roxygen2.r-lib.org/) documentation
 * `param_roclet`: Checks for consistency in documentation of parameters (too many/too few)
 * `return_roclet`: Checks if `@export`ed functions has `@return` documentation (possibly just `@return None`)
+* `examples_roclet`: Checks if `@export`ed functions has `@examples` documentation
 
 To use the package in your own package you do not need to add any additional
 dependencies in your package's `DESCRIPTION` file apart from the usual
@@ -173,6 +174,31 @@ When the package is documented, the following output will be displayed:
 Functions with @export but no @return:
   * Function 'foobar2()' with title 'Summing two numbers'
 ```
+
+
+
+### `examples` roclet
+
+To demonstrate the `examples_roclet` roclet assume that this block of documentation exists:
+
+```r
+#' Summing two numbers
+#'
+#' @param x A number
+#' 
+#' @export
+foobar2 <- function(x, y) {
+  x + y
+}
+```
+
+When the package is documented, the following output will be displayed:
+
+```
+Functions with @export but no @example(s):
+  * Function 'foobar2()' with title 'Summing two numbers'
+```
+
 
 ## Notes
 
