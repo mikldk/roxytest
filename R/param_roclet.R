@@ -73,3 +73,8 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
   
   return(NULL)
 }
+
+#' @export
+roclet_output.roclet_param <- function(x, results, base_path, ...) {
+  return(NULL)
+}

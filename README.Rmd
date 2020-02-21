@@ -24,6 +24,7 @@ There are a number of roclets included:
 
 * `testthat_roclet`: Write [`testthat`](https://testthat.r-lib.org/) tests in the [`roxygen2`](https://roxygen2.r-lib.org/) documentation
 * `param_roclet`: Checks for consistency in documentation of parameters (too many/too few)
+* `return_roclet`: Checks if `@export`ed functions has `@return` documentation (possibly just `@return None`)
 
 To use the package in your own package you do not need to add any additional
 dependencies in your package's `DESCRIPTION` file apart from the usual
@@ -54,26 +55,17 @@ Then run the following:
 roxygen2::roxygenise()
 ```
 
-### `param` roclet
-
-Add the following lines to your package's `DESCRIPTION` file:
-```
-Roxygen: list(roclets = c("namespace", "rd", "roxytest::param_roclet"))
-```
-(Or make appropriate changes to obtain similar results.) 
-
-Then run the following:
-```r
-roxygen2::roxygenise()
-```
+Similarly for the other roclets.
 
 ### Multiple roclets
 
-You can of course also add both, e.g.:
+You can of course also add multiple, e.g.:
 
 ```
 Roxygen: list(roclets = c("namespace", "rd", 
-                          "roxytest::testthat_roclet", "roxytest::param_roclet"))
+                          "roxytest::testthat_roclet",
+                          "roxytest::param_roclet",
+                          "roxytest::return_roclet"))
 ```
 (Or make appropriate changes to obtain similar results.) 
 
@@ -182,10 +174,8 @@ Functions with @export but no @return:
   * Function 'foobar2()' with title 'Summing two numbers'
 ```
 
-## Wish-list
+## Notes
 
-
-* Rstudio: CTRL+SHIFT+D option to run `devtools::document()`/`roxygen2::roxygenise()` instead of `devtools::document(roclets=c('rd', 'collate', 'namespace'))`
-    + Project options -> Build tools -> If all check marks are removed, nothing happens with CTRL+SHIFT+D. If instead `devtools::document()` would be ran it would work.
-    + See <https://github.com/rstudio/rstudio/issues/5201>
+* Rstudio: CTRL+SHIFT+D option does not run `devtools::document()` but only `devtools::document(roclets=c('rd', 'collate', 'namespace'))` (possibly with fewer, but not none)
+    + Use `devtools`' `document()` addin: see e.g. [Rstudio documentation](https://rstudio.github.io/rstudioaddins/), and override the keyboard shortcut
 

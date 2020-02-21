@@ -9,29 +9,27 @@ test_that("All good", {
     f <- function(x, y) {
       x + y
     }")
-  expect_equal(out, list())
-  
-  out <- roxygen2::roclet_output(param_roclet(), out)
-  expect_equal(out, NULL)
+  expect_null(out)
 })
 
 test_that("Missing documentation of 'y' parameter", {
-  out <- roxygen2::roc_proc_text(param_roclet(), "
+  out <- capture_output(roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     #'
     #' @param x A number
     f <- function(x, y) {
       x + y
-    }")
-  expect_equal(length(out), 1L)
+    }"))
   
-  out_str <- gsub("\\[.*\\]", "", out[[1L]])
-  expect_equal(out_str, "Function 'f' with title 'Summing two numbers': \n    - Missing @param's: y")
+  out_str <- gsub("\\[.*\\]", "", out)
+  expect_equal(out_str, paste0("Functions with @param inconsistency:\n", 
+                               "  * Function 'f()' with title 'Summing two numbers': \n", 
+                               "    - Missing @param's: y"))
 })
 
 test_that("Additional documentation for 'z' parameter", {
   
-  out <- roxygen2::roc_proc_text(param_roclet(), "
+  out <- capture_output(roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     #'
     #' @param x A number
@@ -39,11 +37,11 @@ test_that("Additional documentation for 'z' parameter", {
     #' @param z A third parameter
     f <- function(x, y) {
       x + y
-    }")
+    }"))
   
-  expect_equal(length(out), 1L)
-  
-  out_str <- gsub("\\[.*\\]", "", out[[1L]])
-  expect_equal(out_str, "Function 'f' with title 'Summing two numbers': \n    + Too many @param's: z")
+  out_str <- gsub("\\[.*\\]", "", out)
+  expect_equal(out_str, paste0("Functions with @param inconsistency:\n", 
+                               "  * Function 'f()' with title 'Summing two numbers': \n", 
+                               "    + Too many @param's: z"))
 })
 
