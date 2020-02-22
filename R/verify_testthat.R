@@ -1,17 +1,10 @@
 verify_testthat_used <- function() {
-  if (!dir.exists("tests")) {
+  if (!dir.exists("tests") || 
+      !file.exists(file.path("tests", "testthat.R")) ||
+      !dir.exists(file.path("tests", "testthat"))) {
+    stop("testthat is not currently used, please set it up, e.g. by usethis::use_testthat()")
     return(FALSE)
   }
-  
-  if (!file.exists(file.path("tests", "testthat.R"))) {
-    return(FALSE)
-  }
-  
-  if (!dir.exists(file.path("tests", "testthat"))) {
-    return(FALSE)
-  }
-  
-  # FIXME: Check testthat in DESCRIPTION file
   
   return(TRUE)
 }

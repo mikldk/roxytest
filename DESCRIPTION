@@ -1,7 +1,7 @@
 Package: roxytest
 Type: Package
 Title: Various Tests with 'roxygen2'
-Version: 0.0.0.9031
+Version: 0.0.0.9101
 Authors@R: c(
   person(given = "Mikkel Meyer", family = "Andersen", 
          email = "mikl@math.aau.dk", role = c("aut", "cre")),
@@ -9,7 +9,8 @@ Authors@R: c(
          email = "rubak@math.aau.dk", role = c("ctb"))
   )
 Maintainer: Mikkel Meyer Andersen <mikl@math.aau.dk>
-Description: Various tests as 'roxygen2' roclets: e.g. 'testthat' tests.
+Description: Various tests as 'roxygen2' roclets: e.g. 'testthat' and 'tinytest' tests. 
+Also other static analysis tools as checking parameter documentation consistency and others.
 License: GPL (>= 2)
 Imports:
   roxygen2, 
@@ -17,7 +18,8 @@ Imports:
 Depends:
   R (>= 2.10)
 Suggests: 
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    tinytest (>= 1.1.0)
 BugReports: https://github.com/mikldk/roxytest/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))

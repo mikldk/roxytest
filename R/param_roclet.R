@@ -9,7 +9,10 @@
 #' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
 #' @seealso Other roclets:
-#' \code{\link{testthat_roclet}}, 
+#' \code{\link{testthat_roclet}},
+#' \code{\link{tinytest_roclet}},  
+#' \code{\link{examples_roclet}},
+#' \code{\link{return_roclet}}, 
 #' \code{\link[roxygen2]{namespace_roclet}}, 
 #' \code{\link[roxygen2]{rd_roclet}},
 #' \code{\link[roxygen2]{vignette_roclet}}.

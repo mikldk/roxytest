@@ -17,6 +17,12 @@ There are a number of roclets included:
       - `@tests`: Generate test skeletons
       - `@testexamples`: Generate test skeletons with `@examples`
         included first such that e.g. variables can be reused
+  - `tinytest_roclet`: Write
+    [`tinytest`](https://cran.r-project.org/package=tinytest) tests in
+    the [`roxygen2`](https://roxygen2.r-lib.org/) documentation
+      - `@tests`: Generate test skeletons
+      - `@testexamples`: Generate test skeletons with `@examples`
+        included first such that e.g. variables can be reused
   - `param_roclet`: Checks for consistency in documentation of
     parameters (too many/too few)
   - `return_roclet`: Checks if `@export`ed functions has `@return`
@@ -27,11 +33,12 @@ There are a number of roclets included:
 To use the package in your own package you do not need to add any
 additional dependencies in your package’s `DESCRIPTION` file apart from
 the usual `Suggests: testthat` that is required for testing with
-`testthat`. (If you only use `param_roclet`, `return_roclet` or
-`examples_roclet` you do not need to add `testthat` to `Suggests`.)
+`testthat` or the `Suggests: tinytest` that is required for testing with
+`tinytest`. (If you only use `param_roclet`, `return_roclet` or
+`examples_roclet` you do not need to add anything to `Suggests`.)
 
     Suggests:
-      testthat
+      testthat # or tinytest
 
 However, any developer working on your package needs to have `roxytest`
 installed to be able to successfully run `roxygen2::roxygenise()` (or
@@ -74,6 +81,10 @@ roxygen2::roxygenise()
 ```
 
 ## Examples
+
+Below we show based on `testthat`, but it is the same for `tinytest`
+except the output which then happens at `inst/tinytest` without
+`contest()` and `testthat()` boilerplate.
 
 ### `testthat` roclet
 

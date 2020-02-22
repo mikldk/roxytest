@@ -7,7 +7,7 @@
 testthat_roclet()
 }
 \description{
-This roclet is the workhorse of roxytest,
+This roclet is a workhorse of roxytest,
 producing the testthat test files specified.
 
 Generally you will not call this function directly
@@ -16,6 +16,9 @@ but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} s
 \seealso{
 Other roclets:
 \code{\link{param_roclet}},
+\code{\link{examples_roclet}},
+\code{\link{return_roclet}},
+\code{\link{tinytest_roclet}},
 \code{\link[roxygen2]{namespace_roclet}},
 \code{\link[roxygen2]{rd_roclet}},
 \code{\link[roxygen2]{vignette_roclet}}.
@@ -23,6 +26,7 @@ Other roclets:
 Other roclets: 
 \code{\link{examples_roclet}()},
 \code{\link{param_roclet}()},
-\code{\link{return_roclet}()}
+\code{\link{return_roclet}()},
+\code{\link{tinytest_roclet}()}
 }
 \concept{roclets}
