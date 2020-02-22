@@ -87,6 +87,8 @@ prepare_tests <- function(x) {
   gsub("^\\s*(.*?)\\s*$", "\\1", x)
 }
 
+# FIXME: Refactor process_testfiles() and process_testexamplesfiles()
+
 process_testfiles <- function(testfiles, 
                               indent_code = FALSE,
                               add_testthat_boilerplate = FALSE,
