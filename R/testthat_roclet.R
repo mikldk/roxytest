@@ -42,9 +42,16 @@ roclet_output.roclet_testthat <- function(x, results, base_path, ...) {
   testthat_path <- normalizePath(file.path(base_path, "tests", "testthat"))
   
   # Has side-effects: writes files to disk
-  paths <- internal_tests_roclet_output(results = results, 
-                                        base_path = testthat_path)
+  paths_tests <- internal_tests_roclet_output(results = results$tests, 
+                                              base_path = testthat_path, 
+                                              prefix = "test-roxytest-tests-")
+  
+  paths_testexamples <- internal_tests_roclet_output(results = results$testexamples, 
+                                                     base_path = testthat_path, 
+                                                     prefix = "test-roxytest-testexamples-")
 
+  paths <- c(paths_tests, paths_testexamples)
+  
   return(paths)
 }
 
