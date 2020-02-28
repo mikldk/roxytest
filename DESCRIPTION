@@ -10,7 +10,7 @@ Authors@R: c(
   )
 Maintainer: Mikkel Meyer Andersen <mikl@math.aau.dk>
 Description: Various tests as 'roxygen2' roclets: e.g. 'testthat' and 'tinytest' tests. 
-Also other static analysis tools as checking parameter documentation consistency and others.
+  Also other static analysis tools as checking parameter documentation consistency and others.
 License: GPL (>= 2)
 Imports:
   roxygen2, 
