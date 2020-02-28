@@ -18,6 +18,10 @@ parse_tests_tag <- function(x) {
   return(x)
 }
 
+#' Parse tests tag
+#' 
+#' @param x Input
+#' 
 #' @export
 roxy_tag_parse.roxy_tag_tests <- function(x) {
   return(parse_tests_tag(x))
@@ -39,6 +43,10 @@ parse_testexamples_tag <- function(x) {
   return(x)
 }
 
+#' Parse testexamples tag
+#' 
+#' @param x Input
+#' 
 #' @export
 roxy_tag_parse.roxy_tag_testexamples <- function(x) {
   return(parse_testexamples_tag(x))

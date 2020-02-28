@@ -10,3 +10,4 @@
 ^codemeta\.json$
 ^paper\.*
 ^README\.Rmd$
+^\.github/workflows/R-CMD-check\.yaml$
