@@ -1,6 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit only README.Rmd! -->
 
+<!-- badges: start -->
+
+[![R build
+status](https://github.com/mikldk/roxytest/workflows/R-CMD-check/badge.svg)](https://github.com/mikldk/roxytest/actions)
+<!-- badges: end -->
+
 # roxytest
 
 Inline tests with roxygen and testthat.
