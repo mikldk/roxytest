@@ -37,7 +37,7 @@ parse_testexamples_tag <- function(x) {
   if (x$raw == "") {
     return(roxygen2::roxy_tag_warning(x, "requires a value"))
   }
-  
+
   x$val <- gsub("^\n", "", x$raw)
   
   return(x)
@@ -162,6 +162,15 @@ process_testfiles <- function(testfiles,
   return(results)
 }
 
+remove_donts <- function(example) {
+  # Remove content in \donttest{} and \dontrun{}
+  # https://github.com/mikldk/roxytest/issues/12
+  example <- gsub("\\\\donttest\\{[^}]*\\}", "", example)
+  example <- gsub("\\\\dontrun\\{[^}]*\\}", "", example)
+  
+  return(example)
+}
+
 process_testexamplesfiles <- function(testfiles, 
                                       indent_code = FALSE,
                                       add_testthat_boilerplate = FALSE,
@@ -178,7 +187,8 @@ process_testexamplesfiles <- function(testfiles,
     
     content <- lapply(testfile, function(x) {
       examples <- lapply(x$examples, function(l) l$raw)
-      
+      examples <- lapply(examples, remove_donts)
+
       tests <- lapply(x$testexamples, function(l) l$val)
       tests <- prepare_tests(tests)
       
