@@ -23,4 +23,4 @@ Suggests:
 BugReports: https://github.com/mikldk/roxytest/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))
-RoxygenNote: 7.1.0.9000
+RoxygenNote: 7.1.0
