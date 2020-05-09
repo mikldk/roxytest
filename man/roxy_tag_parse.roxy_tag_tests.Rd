@@ -4,7 +4,7 @@
 \alias{roxy_tag_parse.roxy_tag_tests}
 \title{Parse tests tag}
 \usage{
-roxy_tag_parse.roxy_tag_tests(x)
+\method{roxy_tag_parse}{roxy_tag_tests}(x)
 }
 \arguments{
 \item{x}{Input}

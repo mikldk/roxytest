@@ -22,9 +22,16 @@ parse_tests_tag <- function(x) {
 #' 
 #' @param x Input
 #' 
+#' @importFrom roxygen2 roxy_tag_parse
 #' @export
 roxy_tag_parse.roxy_tag_tests <- function(x) {
   return(parse_tests_tag(x))
+}
+
+#' @importFrom roxygen2 roxy_tag_rd
+#' @export
+roxy_tag_rd.roxy_tag_tests <- function(x, base_path, env) {
+  NULL
 }
 
 #' @importFrom roxygen2 roxy_tag_warning
@@ -47,12 +54,17 @@ parse_testexamples_tag <- function(x) {
 #' 
 #' @param x Input
 #' 
+#' @importFrom roxygen2 roxy_tag_parse
 #' @export
 roxy_tag_parse.roxy_tag_testexamples <- function(x) {
   return(parse_testexamples_tag(x))
 }
 
-
+#' @importFrom roxygen2 roxy_tag_rd
+#' @export
+roxy_tag_rd.roxy_tag_testexamples <- function(x, base_path, env) {
+  NULL
+}
 
 #' @importFrom roxygen2 block_get_tags
 block_to_testthat <- function(block) {
