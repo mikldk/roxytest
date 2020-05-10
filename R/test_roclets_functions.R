@@ -177,8 +177,18 @@ process_testfiles <- function(testfiles,
 remove_donts <- function(example) {
   # Remove content in \donttest{} and \dontrun{}
   # https://github.com/mikldk/roxytest/issues/12
-  example <- gsub("\\\\donttest\\{[^}]*\\}", "", example)
-  example <- gsub("\\\\dontrun\\{[^}]*\\}", "", example)
+  #example <- gsub("\\\\donttest\\{[^}]*?\\}", "", example)
+  #example <- gsub("\\\\dontrun\\{[^}]*?\\}", "", example)
+
+  patrn <- '(\\{(?>[^{}]+|(?1))*\\})'
+
+  if (grepl('\\donttest', example, fixed = TRUE)) {
+    example <- gsub(paste0("\\\\donttest", patrn), "", example, perl = TRUE)
+  }
+
+  if (grepl('\\dontrun', example, fixed = TRUE)) {
+    example <- gsub(paste0("\\\\dontrun", patrn), "", example, perl = TRUE)
+  }
   
   return(example)
 }
