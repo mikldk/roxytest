@@ -190,7 +190,7 @@ test_that("Remove content in \\donttest{} and \\dontrun{}", {
   expect_match(out, 'expect_equal(x, 2)', fixed = TRUE)
   
   expect_false(grepl('donttest', out, fixed = TRUE))
-  expect_false(grepl('a <-', out, fixed = TRUE))
+  expect_match(out, 'a <-', fixed = TRUE)
   expect_false(grepl('dontrun', out, fixed = TRUE))
   expect_false(grepl('b <-', out, fixed = TRUE))
   expect_false(grepl('hist(b)', out, fixed = TRUE))

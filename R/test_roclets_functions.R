@@ -173,20 +173,30 @@ process_testfiles <- function(testfiles,
   return(results)
 }
 
+# \dontrun: Everything is removed
+# \donttest: Only tags '\donttest{' and '}' are removed
+# \dontshow: Only tags '\dontshow{' and '}' are removed
 remove_donts <- function(example) {
   # Remove content in \donttest{} and \dontrun{}
   # https://github.com/mikldk/roxytest/issues/12
   #example <- gsub("\\\\donttest\\{[^}]*?\\}", "", example)
   #example <- gsub("\\\\dontrun\\{[^}]*?\\}", "", example)
 
-  patrn <- '(\\{(?>[^{}]+|(?1))*\\})'
+  patrn <- '(\\{((?>[^{}]+|(?1))*)\\})'
 
-  if (grepl('\\donttest', example, fixed = TRUE)) {
-    example <- gsub(paste0("\\\\donttest", patrn), "", example, perl = TRUE)
-  }
-
+  # Remove all
   if (grepl('\\dontrun', example, fixed = TRUE)) {
     example <- gsub(paste0("\\\\dontrun", patrn), "", example, perl = TRUE)
+  }
+  
+  # Only remove tag:
+  if (grepl('\\donttest', example, fixed = TRUE)) {
+    example <- gsub(paste0("\\\\donttest", patrn, ""), "\\2", example, perl = TRUE)
+  }
+  
+  # Only remove tag:
+  if (grepl('\\dontshow', example, fixed = TRUE)) {
+    example <- gsub(paste0("\\\\dontshow", patrn), "\\2", example, perl = TRUE)
   }
   
   return(example)
