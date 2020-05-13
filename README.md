@@ -54,8 +54,7 @@ installed to be able to successfully run `roxygen2::roxygenise()` (or
 ### `testthat` roclet
 
 Add the following lines to your package’s `DESCRIPTION` file (along with
-`Suggests:
-    testthat`):
+`Suggests: testthat`):
 
     Roxygen: list(roclets = c("namespace", "rd", "roxytest::testthat_roclet"))
 
@@ -267,6 +266,6 @@ When the package is documented, the following output will be displayed:
   - Rstudio: CTRL+SHIFT+D option does not run `devtools::document()` but
     only `devtools::document(roclets=c('rd', 'collate', 'namespace'))`
     (possibly with fewer, but not none)
-      - Use `devtools`’ `document()` addin: see e.g. [Rstudio
+      - Use `devtools`’ `document()` addin: see e.g. [Rstudio
         documentation](https://rstudio.github.io/rstudioaddins/), and
         override the keyboard shortcut

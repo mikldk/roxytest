@@ -1,0 +1,146 @@
+---
+title: "Introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(roxytest)
+```
+
+```{r, include = FALSE}
+knitr::knit_engines$set(roxy = function(options) {
+  code <- paste(options$code, collapse = '\n')
+  code <- paste0(
+    "# ----------------------------------------------------\n",
+    "# The code example below....\n", 
+    "# ----------------------------------------------------\n",
+    "\n",
+    code
+  )
+
+  #out <- knitr::knit_child(text = options$code)
+  out <- roxygen2::roc_proc_text(testthat_roclet(), code)
+  out <- unlist(lapply(out, function(l) l[["<text>"]]))
+  out <- paste0(out, collapse = "\n")
+  #out <- out$tests[["<text>"]]
+  out <- paste0(
+    "\n",
+    "# ----------------------------------------------------\n",
+    "# ...will result in a generated file in tests/ folder:\n", 
+    "# ----------------------------------------------------\n",
+    "\n",
+    out)
+
+  # To get syntax highlight
+  options$engine <- "r"
+  options$comment <- NA
+  knitr::engine_output(options, code, out)
+})
+```
+
+
+There are a number of roclets included:
+
+* `tinytest_roclet()` roclet
+* `param_roclet()` roclet
+* `return_roclet()` roclet
+* `examples_roclet()` roclet
+* `testthat_roclet()` roclet
+
+Below, examples for each are provided.
+
+## Examples with `@tests`
+
+```{roxy}
+#' Summing two numbers
+#'
+#' @param x A number
+#' @param y Another number
+#'
+#' @tests
+#' expect_equal(f1(0, 0), 0)
+#' expect_equal(f1(2, 3), 5)
+f1 <- function(x, y) {
+  x + y
+}
+```
+
+## Examples with `@testexamples`
+
+```{roxy}
+#' Summing two numbers
+#'
+#' @param x A number
+#' @param y Another number
+#' 
+#' @examples
+#' y1 <- f2(2, 3)
+#'
+#' @testexamples
+#' expect_equal(y1, 5)
+f2 <- function(x, y) {
+  x + y
+}
+```
+
+
+### `\dont` tags
+
+Note that:
+
+* `\dontrun`: Everything including content is removed
+* `\donttest`: Only the tag itself is removed
+* `\dontshow`: Only the tag itself is removed
+
+```{roxy}
+#' Summing two numbers
+#'
+#' @param x A number
+#' @param y Another number
+#' 
+#' @examples
+#' y1 <- f3(2, 3)
+#' 
+#' \dontrun{
+#' y2 <- f3(3, 4)
+#' }
+#' \donttest{
+#' y3 <- f3(4, 5)
+#' }
+#' \dontshow{
+#' y4 <- f3(5, 6)
+#' }
+#'
+#' @testexamples
+#' expect_equal(y1, 5)
+#' expect_equal(y3, 9)
+#' expect_equal(y4, 11)
+f3 <- function(x, y) {
+  x + y
+}
+```
+
+
+# `tinytest_roclet()` roclet
+
+
+# `param_roclet()` roclet
+
+
+# `return_roclet()` roclet
+
+
+# `examples_roclet()` roclet
+
+

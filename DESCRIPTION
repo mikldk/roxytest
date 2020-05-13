@@ -19,8 +19,11 @@ Depends:
   R (>= 2.10)
 Suggests: 
     testthat (>= 2.1.0),
-    tinytest (>= 1.1.0)
+    tinytest (>= 1.1.0),
+    knitr,
+    rmarkdown
 BugReports: https://github.com/mikldk/roxytest/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))
 RoxygenNote: 7.1.0
+VignetteBuilder: knitr
