@@ -11,3 +11,6 @@
 ^paper\.*
 ^README\.Rmd$
 ^\.github/workflows/R-CMD-check\.yaml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
