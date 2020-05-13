@@ -39,6 +39,13 @@ Please refer to the
 “[Introduction](https://mikldk.github.io/roxytest/articles/introduction.html)”
 vignette for details on these.
 
+To use the package in your own package you do not need to add any
+additional dependencies in your package’s `DESCRIPTION` file. Simply add
+the following lines to your package’s `DESCRIPTION` file (or any other
+of the roclets mentioned above):
+
+    Roxygen: list(roclets = c("namespace", "rd", "roxytest::testthat_roclet"))
+
 ## Notes
 
   - Rstudio: CTRL+SHIFT+D option does not run `devtools::document()` but
