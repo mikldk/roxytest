@@ -1,7 +1,7 @@
 Package: roxytest
 Type: Package
 Title: Various Tests with 'roxygen2'
-Version: 0.0.0.9107
+Version: 0.0.0.9108
 Authors@R: c(
   person(given = "Mikkel Meyer", family = "Andersen", 
          email = "mikl@math.aau.dk", role = c("aut", "cre")),
