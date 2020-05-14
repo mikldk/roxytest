@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roxytest</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9105</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9106</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@
 <div id="roxytest" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#roxytest" class="anchor"></a>roxytest</h1></div>
-<p>Inline tests with <a href="cran.r-project.org/package=roxygen2"><code>roxygen</code></a> using <a href="cran.r-project.org/package=testthat"><code>testthat</code></a> or <a href="cran.r-project.org/package=tinytest"><code>tinytest</code></a>.</p>
+<p>Inline tests with <a href="cran.r-project.org/package=roxygen2"><code>roxygen2</code></a> using <a href="cran.r-project.org/package=testthat"><code>testthat</code></a> or <a href="cran.r-project.org/package=tinytest"><code>tinytest</code></a>. In addition, there are a few roclets that aim at catching common documentation issues during the development cycle.</p>
 <p>See demo package using this at <a href="https://github.com/mikldk/roxytestdemo"><code>roxytestdemo</code></a>.</p>
 <div id="install" class="section level2">
 <h2 class="hasAnchor">
@@ -113,13 +113,12 @@
 <div id="notes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#notes" class="anchor"></a>Notes</h2>
-<ul>
-<li>Rstudio: CTRL+SHIFT+D option does not run <code>devtools::document()</code> but only <code>devtools::document(roclets=c('rd', 'collate', 'namespace'))</code> (possibly with fewer, but not none)
-<ul>
-<li>Use <code>devtools</code>’ <code>document()</code> addin: see e.g. <a href="https://rstudio.github.io/rstudioaddins/">Rstudio documentation</a>, and override the keyboard shortcut</li>
-</ul>
-</li>
-</ul>
+<div id="document-package-keyboard-shortcut" class="section level3">
+<h3 class="hasAnchor">
+<a href="#document-package-keyboard-shortcut" class="anchor"></a>Document package keyboard shortcut</h3>
+<p>In RStudio, <code>CTRL+SHIFT+D</code>/<code>CMD+SHIFT+D</code> option does not run <code>devtools::document()</code> but only <code>devtools::document(roclets=c('rd', 'collate', 'namespace'))</code> (possibly with fewer depending on the project options, but not none).</p>
+<p>Instead, you can use <code>devtools</code>’ <code>document()</code> <a href="https://github.com/r-lib/devtools/pull/2188">addin</a> (see e.g. <a href="https://rstudio.github.io/rstudioaddins/">Rstudio documentation</a>), and override the keyboard shortcut.</p>
+</div>
 </div>
 </div>
 
