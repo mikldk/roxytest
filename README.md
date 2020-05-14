@@ -29,6 +29,12 @@ You can also install the package without vignettes if needed as follows:
 
     remotes::install_github("mikldk/roxytest")
 
+## Documentation
+
+Please refer to this `README` as well as the included manual pages as
+well as the vignette, all also available online at
+<https://mikldk.github.io/roxytest>.
+
 ## Usage
 
 There are a number of roclets included:
