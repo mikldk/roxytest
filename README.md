@@ -9,7 +9,11 @@ status](https://github.com/mikldk/roxytest/workflows/R-CMD-check/badge.svg)](htt
 
 # roxytest
 
-Inline tests with [`roxygen`](cran.r-project.org/package=roxygen2) using [`testthat`](cran.r-project.org/package=testthat) or [`tinytest`](cran.r-project.org/package=tinytest).
+Inline tests with [`roxygen2`](cran.r-project.org/package=roxygen2)
+using [`testthat`](cran.r-project.org/package=testthat) or
+[`tinytest`](cran.r-project.org/package=tinytest). In addition, there
+are a few roclets that aim at catching common documentation issues
+during the development cycle.
 
 See demo package using this at
 [`roxytestdemo`](https://github.com/mikldk/roxytestdemo).
@@ -48,9 +52,14 @@ of the roclets mentioned above):
 
 ## Notes
 
-  - Rstudio: CTRL+SHIFT+D option does not run `devtools::document()` but
-    only `devtools::document(roclets=c('rd', 'collate', 'namespace'))`
-    (possibly with fewer, but not none)
-      - Use `devtools`’ `document()` addin: see e.g. [Rstudio
-        documentation](https://rstudio.github.io/rstudioaddins/), and
-        override the keyboard shortcut
+### Document package keyboard shortcut
+
+In RStudio, `CTRL+SHIFT+D`/`CMD+SHIFT+D` option does not run
+`devtools::document()` but only `devtools::document(roclets=c('rd',
+'collate', 'namespace'))` (possibly with fewer depending on the project
+options, but not none).
+
+Instead, you can use `devtools`’ `document()`
+[addin](https://github.com/r-lib/devtools/pull/2188) (see e.g. [Rstudio
+documentation](https://rstudio.github.io/rstudioaddins/)), and override
+the keyboard shortcut.
