@@ -6,6 +6,9 @@
 \usage{
 param_roclet()
 }
+\value{
+A roclet to be used e.g. with \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}}
+}
 \description{
 This roclet checks consistency between function arguments
 and the documentation. The idea is to catch such errors earlier than in
@@ -13,6 +16,12 @@ an R CMD check.
 
 Generally you will not call this function directly
 but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} specifying this roclet.
+}
+\examples{
+x <- "#' Summing two numbers\n#'\n#' @export\nf <- function(x, y) {\n   x + y\n}\n"
+cat(x)
+roxygen2::roc_proc_text(param_roclet(), x)
+
 }
 \seealso{
 Other roclets:

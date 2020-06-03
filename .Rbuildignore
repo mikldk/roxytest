@@ -4,6 +4,7 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^.git$
+^.github$
 ^.gitignore$
 ^tic\.R$
 ^docs

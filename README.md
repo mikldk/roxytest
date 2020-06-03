@@ -9,10 +9,11 @@ status](https://github.com/mikldk/roxytest/workflows/R-CMD-check/badge.svg)](htt
 
 # roxytest
 
-Inline tests with [`roxygen2`](cran.r-project.org/package=roxygen2)
-using [`testthat`](cran.r-project.org/package=testthat) or
-[`tinytest`](cran.r-project.org/package=tinytest). In addition, there
-are a few roclets that aim at catching common documentation issues
+Inline tests with
+[`roxygen2`](https://cran.r-project.org/package=roxygen2) using
+[`testthat`](https://cran.r-project.org/package=testthat) or
+[`tinytest`](https://cran.r-project.org/package=tinytest). In addition,
+there are a few roclets that aim at catching common documentation issues
 during the development cycle.
 
 See demo package using this at

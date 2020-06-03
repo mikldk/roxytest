@@ -22,6 +22,8 @@ parse_tests_tag <- function(x) {
 #' 
 #' @param x Input
 #' 
+#' @return Parsed tag
+#' 
 #' @importFrom roxygen2 roxy_tag_parse
 #' @export
 roxy_tag_parse.roxy_tag_tests <- function(x) {
@@ -53,6 +55,8 @@ parse_testexamples_tag <- function(x) {
 #' Parse testexamples tag
 #' 
 #' @param x Input
+#' 
+#' @return Parsed tag
 #' 
 #' @importFrom roxygen2 roxy_tag_parse
 #' @export

@@ -6,11 +6,20 @@
 \usage{
 examples_roclet()
 }
+\value{
+A roclet to be used e.g. with \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}}
+}
 \description{
 This roclet checks presence of \verb{@example}/\verb{@examples}.
 
 Generally you will not call this function directly
 but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} specifying this roclet.
+}
+\examples{
+x <- "#' Summing two numbers\n#'\n#' @export\nf <- function(x, y) {\n   x + y\n}\n"
+cat(x)
+roxygen2::roc_proc_text(examples_roclet(), x)
+
 }
 \seealso{
 Other roclets:

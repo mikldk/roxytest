@@ -7,6 +7,15 @@
 #' Generally you will not call this function directly
 #' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
+#' @examples
+#' x <- "#' @tests\n#' expect_equal(2, 2)\nNULL\n"
+#' cat(x)
+#' o <- roxygen2::roc_proc_text(testthat_roclet(), x)
+#' cat(o$tests[[1]])
+#' 
+#' @return
+#' A roclet to be used e.g. with [roxygen2::roxygenise()]
+#' 
 #' @seealso Other roclets:
 #' \code{\link{param_roclet}}, 
 #' \code{\link{examples_roclet}},

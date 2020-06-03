@@ -9,6 +9,9 @@
 \arguments{
 \item{x}{Input}
 }
+\value{
+Parsed tag
+}
 \description{
 Parse testexamples tag
 }

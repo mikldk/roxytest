@@ -7,6 +7,14 @@
 #' Generally you will not call this function directly
 #' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
+#' @examples
+#' x <- "#' Summing two numbers\n#'\n#' @export\nf <- function(x, y) {\n   x + y\n}\n"
+#' cat(x)
+#' roxygen2::roc_proc_text(return_roclet(), x)
+#' 
+#' @return
+#' A roclet to be used e.g. with [roxygen2::roxygenise()]
+#' 
 #' @seealso Other roclets:
 #' \code{\link{testthat_roclet}},
 #' \code{\link{tinytest_roclet}},  
@@ -67,9 +75,8 @@ roclet_process.roclet_return <- function(x, blocks, env, base_path) {
   #print(warns)
   
   if (length(warns) > 0L) {
-    cat("Functions with @export but no @return:\n")
-    cat(paste0("  * ", warns, collapse = "\n"), sep = "")
-    cat("\n")
+    message("Functions with @export but no @return:")
+    message(paste0("  * ", warns, collapse = "\n"), sep = "")
   }
   
   return(NULL)

@@ -8,6 +8,14 @@
 #' Generally you will not call this function directly
 #' but will instead use [roxygen2::roxygenise()] specifying this roclet.
 #' 
+#' @examples
+#' x <- "#' Summing two numbers\n#'\n#' @export\nf <- function(x, y) {\n   x + y\n}\n"
+#' cat(x)
+#' roxygen2::roc_proc_text(param_roclet(), x)
+#' 
+#' @return
+#' A roclet to be used e.g. with [roxygen2::roxygenise()]
+#' 
 #' @seealso Other roclets:
 #' \code{\link{testthat_roclet}},
 #' \code{\link{tinytest_roclet}},  
@@ -42,8 +50,12 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
     fun_args <- formalArgs(block_obj$value)
     
     block_params <- roxygen2::block_get_tags(block, "param")
-    block_params_names <- sort(unname(sapply(block_params, function(x) x$val$name), force = TRUE))
+    block_params_names <- NULL
     
+    if (length(block_params) > 0L) {
+      block_params_names <- sort(unname(sapply(block_params, function(x) x$val$name), force = TRUE))
+    }
+
     if (!isTRUE(all.equal(fun_args, block_params_names))) {
       func_name <- block_obj$alias
       
@@ -69,9 +81,8 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
   }
   
   if (length(warns) > 0L) {
-    cat("Functions with @param inconsistency:\n")
-    cat(paste0("  * ", warns, collapse = "\n"), sep = "")
-    cat("\n")
+    message("Functions with @param inconsistency:")
+    message(paste0("  * ", warns, collapse = "\n"), sep = "")
   }
   
   return(NULL)
