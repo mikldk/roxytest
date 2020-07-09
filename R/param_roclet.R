@@ -48,14 +48,16 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
     }
     
     fun_args <- formalArgs(block_obj$value)
+    fun_args <- sort(fun_args)
     
     block_params <- roxygen2::block_get_tags(block, "param")
     block_params_names <- NULL
     
     if (length(block_params) > 0L) {
-      block_params_names <- sort(unname(sapply(block_params, function(x) x$val$name), force = TRUE))
+      block_params_names <- unname(sapply(block_params, function(x) x$val$name), force = TRUE)
+      block_params_names <- sort(block_params_names)
     }
-
+    
     if (!isTRUE(all.equal(fun_args, block_params_names))) {
       func_name <- block_obj$alias
       
@@ -79,7 +81,7 @@ roclet_process.roclet_param <- function(x, blocks, env, base_path) {
       warns <- c(warns, warn)
     }
   }
-  
+
   if (length(warns) > 0L) {
     message("Functions with @param inconsistency:")
     message(paste0("  * ", warns, collapse = "\n"), sep = "")
