@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,18 +34,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roxytest</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9010</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -63,7 +59,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/mikldk/roxytest/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -83,12 +79,12 @@
 
 <div id="roxytest" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#roxytest" class="anchor"></a>roxytest</h1></div>
-<p>Inline tests with <a href="https://cran.r-project.org/package=roxygen2"><code>roxygen2</code></a> using <a href="https://cran.r-project.org/package=testthat"><code>testthat</code></a> or <a href="https://cran.r-project.org/package=tinytest"><code>tinytest</code></a>. In addition, there are a few roclets that aim at catching common documentation issues during the development cycle.</p>
-<p>See demo package using this at <a href="https://github.com/mikldk/roxytestdemo"><code>roxytestdemo</code></a>.</p>
+<a href="#roxytest" class="anchor" aria-hidden="true"></a>roxytest</h1></div>
+<p>Inline tests with <a href="https://cran.r-project.org/package=roxygen2" class="external-link"><code>roxygen2</code></a> using <a href="https://cran.r-project.org/package=testthat" class="external-link"><code>testthat</code></a> or <a href="https://cran.r-project.org/package=tinytest" class="external-link"><code>tinytest</code></a>. In addition, there are a few roclets that aim at catching common documentation issues during the development cycle.</p>
+<p>See demo package using this at <a href="https://github.com/mikldk/roxytestdemo" class="external-link"><code>roxytestdemo</code></a>.</p>
 <div id="install" class="section level2">
 <h2 class="hasAnchor">
-<a href="#install" class="anchor"></a>Install</h2>
+<a href="#install" class="anchor" aria-hidden="true"></a>Install</h2>
 <p>To build and install from Github run this command from within <code>R</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"mikldk/roxytest"</span>, </span>
 <span id="cb1-2"><a href="#cb1-2"></a>                        <span class="dt">build_opts =</span> <span class="kw">c</span>(<span class="st">"--no-resave-data"</span>, <span class="st">"--no-manual"</span>))</span></code></pre></div>
@@ -97,12 +93,12 @@
 </div>
 <div id="documentation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
-<p>Please refer to this <code>README</code> as well as the included manual pages as well as the vignette, all also available online at <a href="https://mikldk.github.io/roxytest" class="uri">https://mikldk.github.io/roxytest</a>.</p>
+<a href="#documentation" class="anchor" aria-hidden="true"></a>Documentation</h2>
+<p>Please refer to this <code>README</code> as well as the included manual pages as well as the vignette, all also available online at <a href="https://mikldk.github.io/roxytest" class="external-link uri">https://mikldk.github.io/roxytest</a>.</p>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<a href="#usage" class="anchor" aria-hidden="true"></a>Usage</h2>
 <p>There are a number of roclets included:</p>
 <ul>
 <li><code>testthat_roclet</code></li>
@@ -111,18 +107,18 @@
 <li><code>return_roclet</code></li>
 <li><code>examples_roclet</code></li>
 </ul>
-<p>Please refer to the “<a href="https://mikldk.github.io/roxytest/articles/introduction.html">Introduction</a>” vignette for details on these.</p>
+<p>Please refer to the “<a href="https://mikldk.github.io/roxytest/articles/introduction.html" class="external-link">Introduction</a>” vignette for details on these.</p>
 <p>To use the package in your own package you do not need to add any additional dependencies in your package’s <code>DESCRIPTION</code> file. Simply add the following lines to your package’s <code>DESCRIPTION</code> file (or any other of the roclets mentioned above):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Roxygen<span class="op">:</span><span class="st"> </span><span class="kw">list</span>(<span class="dt">roclets =</span> <span class="kw">c</span>(<span class="st">"namespace"</span>, <span class="st">"rd"</span>, <span class="st">"roxytest::testthat_roclet"</span>))</span></code></pre></div>
 </div>
 <div id="notes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#notes" class="anchor"></a>Notes</h2>
+<a href="#notes" class="anchor" aria-hidden="true"></a>Notes</h2>
 <div id="document-package-keyboard-shortcut" class="section level3">
 <h3 class="hasAnchor">
-<a href="#document-package-keyboard-shortcut" class="anchor"></a>Document package keyboard shortcut</h3>
+<a href="#document-package-keyboard-shortcut" class="anchor" aria-hidden="true"></a>Document package keyboard shortcut</h3>
 <p>In RStudio, <code>CTRL+SHIFT+D</code>/<code>CMD+SHIFT+D</code> option does not run <code>devtools::document()</code> but only <code>devtools::document(roclets=c('rd', 'collate', 'namespace'))</code> (possibly with fewer depending on the project options, but not none).</p>
-<p>Instead, you can use <code>devtools</code>’ <code>document()</code> <a href="https://github.com/r-lib/devtools/pull/2188">addin</a> (see e.g. <a href="https://rstudio.github.io/rstudioaddins/">Rstudio documentation</a>), and override the keyboard shortcut.</p>
+<p>Instead, you can use <code>devtools</code>’ <code>document()</code> <a href="https://github.com/r-lib/devtools/pull/2188" class="external-link">addin</a> (see e.g. <a href="https://rstudio.github.io/rstudioaddins/" class="external-link">Rstudio documentation</a>), and override the keyboard shortcut.</p>
 </div>
 </div>
 </div>
@@ -131,7 +127,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=roxytest">https://​cloud.r-project.org/​package=roxytest</a>
 </li>
@@ -141,36 +137,42 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 2)</li>
 </ul>
 </div>
+
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Mikkel Meyer Andersen <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html">More on authors...</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/mikldk/roxytest/actions"><img src="https://github.com/mikldk/roxytest/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://github.com/mikldk/roxytest/actions" class="external-link"><img src="https://github.com/mikldk/roxytest/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Mikkel Meyer Andersen.</p>
+  <p></p>
+<p>Developed by Mikkel Meyer Andersen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -178,6 +180,8 @@
 
   
 
+
+  
 
   </body>
 </html>
