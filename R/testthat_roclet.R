@@ -42,7 +42,7 @@ roclet_process.roclet_testthat <- function(x,
   results <- internal_tests_roclet_process(blocks,
                                            indent_code = TRUE,
                                            add_testthat_boilerplate = TRUE,
-                                           add_context_header = TRUE)
+                                           add_context_header = FALSE)
   
   return(results)
 }

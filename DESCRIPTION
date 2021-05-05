@@ -1,7 +1,7 @@
 Package: roxytest
 Type: Package
 Title: Various Tests with 'roxygen2'
-Version: 0.0.1.9001
+Version: 0.0.1.9010
 Authors@R: c(
   person(given = "Mikkel Meyer", family = "Andersen", 
          email = "mikl@math.aau.dk", role = c("aut", "cre")),
@@ -25,5 +25,5 @@ Suggests:
 BugReports: https://github.com/mikldk/roxytest/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "collate", "namespace"))
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr

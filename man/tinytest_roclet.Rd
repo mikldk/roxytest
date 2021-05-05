@@ -7,14 +7,14 @@
 tinytest_roclet()
 }
 \value{
-A roclet to be used e.g. with \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}}
+A roclet to be used e.g. with \code{\link[roxygen2:roxygenize]{roxygen2::roxygenise()}}
 }
 \description{
 This roclet is a workhorse of roxytest,
 producing the tinytest test files specified.
 
 Generally you will not call this function directly
-but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} specifying this roclet.
+but will instead use \code{\link[roxygen2:roxygenize]{roxygen2::roxygenise()}} specifying this roclet.
 }
 \examples{
 x <- "#' @tests\n#' expect_equal(2, 2)\nNULL\n"

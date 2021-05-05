@@ -7,14 +7,14 @@
 return_roclet()
 }
 \value{
-A roclet to be used e.g. with \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}}
+A roclet to be used e.g. with \code{\link[roxygen2:roxygenize]{roxygen2::roxygenise()}}
 }
 \description{
 This roclet checks presence of \verb{@return} that
 generates \verb{\\value} in \code{Rd} files.
 
 Generally you will not call this function directly
-but will instead use \code{\link[roxygen2:roxygenise]{roxygen2::roxygenise()}} specifying this roclet.
+but will instead use \code{\link[roxygen2:roxygenize]{roxygen2::roxygenise()}} specifying this roclet.
 }
 \examples{
 x <- "#' Summing two numbers\n#'\n#' @export\nf <- function(x, y) {\n   x + y\n}\n"
