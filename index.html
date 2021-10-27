@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roxytest</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9010</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1.9011</span>
       </span>
     </div>
 
@@ -58,7 +58,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mikldk/roxytest/">
+  <a href="https://github.com/mikldk/roxytest/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -77,28 +77,28 @@
   <div class="contents col-md-9">
 
 
-<div id="roxytest" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#roxytest" class="anchor" aria-hidden="true"></a>roxytest</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="roxytest">roxytest<a class="anchor" aria-label="anchor" href="#roxytest"></a>
+</h1></div>
 <p>Inline tests with <a href="https://cran.r-project.org/package=roxygen2" class="external-link"><code>roxygen2</code></a> using <a href="https://cran.r-project.org/package=testthat" class="external-link"><code>testthat</code></a> or <a href="https://cran.r-project.org/package=tinytest" class="external-link"><code>tinytest</code></a>. In addition, there are a few roclets that aim at catching common documentation issues during the development cycle.</p>
 <p>See demo package using this at <a href="https://github.com/mikldk/roxytestdemo" class="external-link"><code>roxytestdemo</code></a>.</p>
-<div id="install" class="section level2">
-<h2 class="hasAnchor">
-<a href="#install" class="anchor" aria-hidden="true"></a>Install</h2>
+<div class="section level2">
+<h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h2>
 <p>To build and install from Github run this command from within <code>R</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"mikldk/roxytest"</span>, </span>
 <span id="cb1-2"><a href="#cb1-2"></a>                        <span class="dt">build_opts =</span> <span class="kw">c</span>(<span class="st">"--no-resave-data"</span>, <span class="st">"--no-manual"</span>))</span></code></pre></div>
 <p>You can also install the package without vignettes if needed as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"mikldk/roxytest"</span>)</span></code></pre></div>
 </div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor" aria-hidden="true"></a>Documentation</h2>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
 <p>Please refer to this <code>README</code> as well as the included manual pages as well as the vignette, all also available online at <a href="https://mikldk.github.io/roxytest" class="external-link uri">https://mikldk.github.io/roxytest</a>.</p>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor" aria-hidden="true"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>There are a number of roclets included:</p>
 <ul>
 <li><code>testthat_roclet</code></li>
@@ -111,12 +111,12 @@
 <p>To use the package in your own package you do not need to add any additional dependencies in your package’s <code>DESCRIPTION</code> file. Simply add the following lines to your package’s <code>DESCRIPTION</code> file (or any other of the roclets mentioned above):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Roxygen<span class="op">:</span><span class="st"> </span><span class="kw">list</span>(<span class="dt">roclets =</span> <span class="kw">c</span>(<span class="st">"namespace"</span>, <span class="st">"rd"</span>, <span class="st">"roxytest::testthat_roclet"</span>))</span></code></pre></div>
 </div>
-<div id="notes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#notes" class="anchor" aria-hidden="true"></a>Notes</h2>
-<div id="document-package-keyboard-shortcut" class="section level3">
-<h3 class="hasAnchor">
-<a href="#document-package-keyboard-shortcut" class="anchor" aria-hidden="true"></a>Document package keyboard shortcut</h3>
+<div class="section level2">
+<h2 id="notes">Notes<a class="anchor" aria-label="anchor" href="#notes"></a>
+</h2>
+<div class="section level3">
+<h3 id="document-package-keyboard-shortcut">Document package keyboard shortcut<a class="anchor" aria-label="anchor" href="#document-package-keyboard-shortcut"></a>
+</h3>
 <p>In RStudio, <code>CTRL+SHIFT+D</code>/<code>CMD+SHIFT+D</code> option does not run <code>devtools::document()</code> but only <code>devtools::document(roclets=c('rd', 'collate', 'namespace'))</code> (possibly with fewer depending on the project options, but not none).</p>
 <p>Instead, you can use <code>devtools</code>’ <code>document()</code> <a href="https://github.com/r-lib/devtools/pull/2188" class="external-link">addin</a> (see e.g. <a href="https://rstudio.github.io/rstudioaddins/" class="external-link">Rstudio documentation</a>), and override the keyboard shortcut.</p>
 </div>
@@ -129,12 +129,9 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=roxytest">https://​cloud.r-project.org/​package=roxytest</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/mikldk/roxytest/">https://​github.com/​mikldk/​roxytest/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/mikldk/roxytest/issues">https://​github.com/​mikldk/​roxytest/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=roxytest" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/mikldk/roxytest/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/mikldk/roxytest/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -172,7 +169,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>

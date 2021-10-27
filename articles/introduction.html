@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">roxytest</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9010</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1.9011</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
       <h1 data-toc-skip>Introduction</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/mikldk/roxytest/blob/master/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mikldk/roxytest/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
 
     </div>
@@ -115,40 +115,42 @@
 <code>examples_roclet</code>: Checks if <code>@export</code>ed functions has <code>@examples</code> documentation</li>
 </ul>
 <p>To use the package in your own package you do not need to add any additional dependencies in your package’s <code>DESCRIPTION</code> file apart from the usual <code>Suggests: testthat</code> that is required for testing with <code>testthat</code> or the <code>Suggests: tinytest</code> that is required for testing with <code>tinytest</code>. (If you only use <code>param_roclet</code>, <code>return_roclet</code> or <code>examples_roclet</code> you do not need to add anything to <code>Suggests</code>.)</p>
-<pre><code>Suggests:
-  testthat # or tinytest</code></pre>
+<pre><code><span class="va">Suggests</span><span class="op">:</span>
+  <span class="va">testthat</span> <span class="co"># or tinytest</span></code></pre>
 <p>However, any developer working on your package needs to have <code>roxytest</code> installed to be able to successfully run <code><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygen2::roxygenise()</a></code> (or <code>devtools::document()</code>). For this reason you may consider adding <code>roxytest</code> to <code>Suggests</code>, but this is not required.</p>
-<div id="testthat-roclet" class="section level3">
-<h3 class="hasAnchor">
-<a href="#testthat-roclet" class="anchor" aria-hidden="true"></a><code>testthat</code> roclet</h3>
+<div class="section level3">
+<h3 id="testthat-roclet">
+<code>testthat</code> roclet<a class="anchor" aria-label="anchor" href="#testthat-roclet"></a>
+</h3>
 <p>Add the following lines to your package’s <code>DESCRIPTION</code> file (along with <code>Suggests: testthat</code>):</p>
-<pre><code>Roxygen: list(roclets = c("namespace", "rd", "roxytest::testthat_roclet"))</code></pre>
+<pre><code><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, <span class="st">"roxytest::testthat_roclet"</span><span class="op">)</span><span class="op">)</span></code></pre>
 <p>(Or make appropriate changes to obtain similar results.)</p>
 <p>Then run the following:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Similarly for the other roclets.</p>
 </div>
-<div id="multiple-roclets" class="section level3">
-<h3 class="hasAnchor">
-<a href="#multiple-roclets" class="anchor" aria-hidden="true"></a>Multiple roclets</h3>
+<div class="section level3">
+<h3 id="multiple-roclets">Multiple roclets<a class="anchor" aria-label="anchor" href="#multiple-roclets"></a>
+</h3>
 <p>You can of course also add multiple, e.g.:</p>
-<pre><code>Roxygen: list(roclets = c("namespace", "rd", 
-                          "roxytest::testthat_roclet",
-                          "roxytest::param_roclet",
-                          "roxytest::return_roclet"))</code></pre>
+<pre><code><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, 
+                          <span class="st">"roxytest::testthat_roclet"</span>,
+                          <span class="st">"roxytest::param_roclet"</span>,
+                          <span class="st">"roxytest::return_roclet"</span><span class="op">)</span><span class="op">)</span></code></pre>
 <p>(Or make appropriate changes to obtain similar results.)</p>
 <p>Then run the following:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor" aria-hidden="true"></a>Examples</h2>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
 <p>Below we show based on <code>testthat</code>, but it is the same for <code>tinytest</code> except the output which then happens at <code>inst/tinytest</code> without <code>contest()</code> and <code>testthat()</code> boilerplate.</p>
-<div id="testthat-roclet-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#testthat-roclet-1" class="anchor" aria-hidden="true"></a><code>testthat</code> roclet</h3>
+<div class="section level3">
+<h3 id="testthat-roclet-1">
+<code>testthat</code> roclet<a class="anchor" aria-label="anchor" href="#testthat-roclet-1"></a>
+</h3>
 <p>As mentioned above, there are two tags available:</p>
 <ul>
 <li>
@@ -158,9 +160,10 @@
 </ul>
 <p>Note that both can be used at the same time.</p>
 <p>We first demonstrate <code>@tests</code> and afterwards <code>@testexamples</code>.</p>
-<div id="tests-tag" class="section level4">
-<h4 class="hasAnchor">
-<a href="#tests-tag" class="anchor" aria-hidden="true"></a><code>@tests</code> tag</h4>
+<div class="section level4">
+<h4 id="tests-tag">
+<code>@tests</code> tag<a class="anchor" aria-label="anchor" href="#tests-tag"></a>
+</h4>
 <p>For example, if the file <code>R/functions.R</code> contains this code (from <a href="https://github.com/mikldk/roxytestdemo" class="external-link">roxytestdemo</a>):</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' A function to do x</span>
@@ -204,9 +207,10 @@
   <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">bar</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="testexamples-tag" class="section level4">
-<h4 class="hasAnchor">
-<a href="#testexamples-tag" class="anchor" aria-hidden="true"></a><code>@testexamples</code> tag</h4>
+<div class="section level4">
+<h4 id="testexamples-tag">
+<code>@testexamples</code> tag<a class="anchor" aria-label="anchor" href="#testexamples-tag"></a>
+</h4>
 <p>For example, if the file <code>R/functions.R</code> contains this code (from <a href="https://github.com/mikldk/roxytestdemo" class="external-link">roxytestdemo</a>):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' A function to do w</span>
@@ -248,9 +252,10 @@
 </ul>
 </div>
 </div>
-<div id="param-roclet" class="section level3">
-<h3 class="hasAnchor">
-<a href="#param-roclet" class="anchor" aria-hidden="true"></a><code>param</code> roclet</h3>
+<div class="section level3">
+<h3 id="param-roclet">
+<code>param</code> roclet<a class="anchor" aria-label="anchor" href="#param-roclet"></a>
+</h3>
 <p>To demonstrate the <code>param_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Summing two numbers</span>
@@ -265,9 +270,10 @@
     - Missing @param's: y</code></pre>
 <p>Similarly if there are too many documented arguments.</p>
 </div>
-<div id="return-roclet" class="section level3">
-<h3 class="hasAnchor">
-<a href="#return-roclet" class="anchor" aria-hidden="true"></a><code>return</code> roclet</h3>
+<div class="section level3">
+<h3 id="return-roclet">
+<code>return</code> roclet<a class="anchor" aria-label="anchor" href="#return-roclet"></a>
+</h3>
 <p>To demonstrate the <code>return_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Summing two numbers</span>
@@ -282,9 +288,10 @@
 <pre><code>Functions with @export but no @return:
   * Function 'foobar2()' with title 'Summing two numbers'</code></pre>
 </div>
-<div id="examples-roclet" class="section level3">
-<h3 class="hasAnchor">
-<a href="#examples-roclet" class="anchor" aria-hidden="true"></a><code>examples</code> roclet</h3>
+<div class="section level3">
+<h3 id="examples-roclet">
+<code>examples</code> roclet<a class="anchor" aria-label="anchor" href="#examples-roclet"></a>
+</h3>
 <p>To demonstrate the <code>examples_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Summing two numbers</span>
@@ -319,7 +326,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
