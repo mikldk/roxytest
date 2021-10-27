@@ -317,7 +317,7 @@ internal_tests_roclet_output <- function(results, base_path, prefix = "test-roxy
   for (i in seq_along(results)) {    
     path <- file.path(base_path, paste0(prefix, paths[i]))
     
-    if (file.exists(path)) {
+    if (!made_by_roxytest(path)) {
       warning(paste0("The file '", path, "' was not created by roxytest (wrong header), ", 
                      "and hence was not modified as planned. ",
                      "Please be sure that this is intended."))
