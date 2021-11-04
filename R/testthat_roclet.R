@@ -76,7 +76,7 @@ roclet_clean.roclet_testthat <- function(x, base_path) {
   verify_testthat_used()
   
   testfiles <- dir(path = file.path(base_path, "tests", "testthat"), 
-                   pattern = "^test-roxytest-.*\\.R$", 
+                   pattern = "^test-roxytest-.*\\.[Rr]$", 
                    full.names = TRUE)
   
   # Has side-effects: deletes files on disk
