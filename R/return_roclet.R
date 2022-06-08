@@ -37,6 +37,8 @@ return_roclet <- function() {
 #' 
 #' @export
 roclet_process.roclet_return <- function(x, blocks, env, base_path) {
+  blocks <- collect_annotate_rdname(blocks)
+  
   warns <- list()
   
   for (block in blocks) {

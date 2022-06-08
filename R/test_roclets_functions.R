@@ -279,6 +279,8 @@ process_testexamplesfiles <- function(testfiles,
 # Process test roclet
 internal_tests_roclet_process <- function(blocks, ...) {
   
+  blocks <- collect_annotate_rdname(blocks)
+  
   testfiles <- list()
   testexamplesfiles <- list()
   
