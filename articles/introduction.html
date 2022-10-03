@@ -86,7 +86,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">roxytest</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">roxytest</span><span class="op">)</span></span></code></pre></div>
 <p>There are a number of roclets included:</p>
 <ul>
 <li>
@@ -115,33 +115,33 @@
 <code>examples_roclet</code>: Checks if <code>@export</code>ed functions has <code>@examples</code> documentation</li>
 </ul>
 <p>To use the package in your own package you do not need to add any additional dependencies in your package’s <code>DESCRIPTION</code> file apart from the usual <code>Suggests: testthat</code> that is required for testing with <code>testthat</code> or the <code>Suggests: tinytest</code> that is required for testing with <code>tinytest</code>. (If you only use <code>param_roclet</code>, <code>return_roclet</code> or <code>examples_roclet</code> you do not need to add anything to <code>Suggests</code>.)</p>
-<pre><code><span class="va">Suggests</span><span class="op">:</span>
-  <span class="va">testthat</span> <span class="co"># or tinytest</span></code></pre>
+<pre><code><span><span class="va">Suggests</span><span class="op">:</span></span>
+<span>  <span class="va">testthat</span> <span class="co"># or tinytest</span></span></code></pre>
 <p>However, any developer working on your package needs to have <code>roxytest</code> installed to be able to successfully run <code><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygen2::roxygenise()</a></code> (or <code>devtools::document()</code>). For this reason you may consider adding <code>roxytest</code> to <code>Suggests</code>, but this is not required.</p>
 <div class="section level3">
 <h3 id="testthat-roclet">
 <code>testthat</code> roclet<a class="anchor" aria-label="anchor" href="#testthat-roclet"></a>
 </h3>
 <p>Add the following lines to your package’s <code>DESCRIPTION</code> file (along with <code>Suggests: testthat</code>):</p>
-<pre><code><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, <span class="st">"roxytest::testthat_roclet"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, <span class="st">"roxytest::testthat_roclet"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p>(Or make appropriate changes to obtain similar results.)</p>
 <p>Then run the following:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Similarly for the other roclets.</p>
 </div>
 <div class="section level3">
 <h3 id="multiple-roclets">Multiple roclets<a class="anchor" aria-label="anchor" href="#multiple-roclets"></a>
 </h3>
 <p>You can of course also add multiple, e.g.:</p>
-<pre><code><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, 
-                          <span class="st">"roxytest::testthat_roclet"</span>,
-                          <span class="st">"roxytest::param_roclet"</span>,
-                          <span class="st">"roxytest::return_roclet"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="va">Roxygen</span><span class="op">:</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>roclets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"namespace"</span>, <span class="st">"rd"</span>, </span>
+<span>                          <span class="st">"roxytest::testthat_roclet"</span>,</span>
+<span>                          <span class="st">"roxytest::param_roclet"</span>,</span>
+<span>                          <span class="st">"roxytest::return_roclet"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p>(Or make appropriate changes to obtain similar results.)</p>
 <p>Then run the following:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">roxygen2</span><span class="fu">::</span><span class="fu"><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygenise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -166,46 +166,46 @@
 </h4>
 <p>For example, if the file <code>R/functions.R</code> contains this code (from <a href="https://github.com/mikldk/roxytestdemo" class="external-link">roxytestdemo</a>):</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' A function to do x</span>
-<span class="co">#' </span>
-<span class="co">#' @param x A number</span>
-<span class="co">#' </span>
-<span class="co">#' @tests </span>
-<span class="co">#' expect_equal(foo(2), sqrt(2))</span>
-<span class="co">#' expect_error(foo("a string"))</span>
-<span class="co">#' </span>
-<span class="co">#' @return something</span>
-<span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co">#' A function to do y</span>
-<span class="co">#' </span>
-<span class="co">#' @param x Character vector</span>
-<span class="co">#' @param y Character vector</span>
-<span class="co">#' </span>
-<span class="co">#' @tests </span>
-<span class="co">#' expect_equal(bar("A", "B"), paste("A", "B", sep = "/"))</span>
-<span class="co">#' </span>
-<span class="co">#' @export</span>
-<span class="va">bar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"/"</span>, <span class="va">y</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' A function to do x</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @param x A number</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @tests </span></span>
+<span><span class="co">#' expect_equal(foo(2), sqrt(2))</span></span>
+<span><span class="co">#' expect_error(foo("a string"))</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @return something</span></span>
+<span><span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">#' A function to do y</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @param x Character vector</span></span>
+<span><span class="co">#' @param y Character vector</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @tests </span></span>
+<span><span class="co">#' expect_equal(bar("A", "B"), paste("A", "B", sep = "/"))</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">bar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"/"</span>, <span class="va">y</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Then <code><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygen2::roxygenise()</a></code> will generate (with the <code>testthat_roclet</code> roclet) the file <code>tests/testthat/test-roxytest-tests-functions.R</code> with this content:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Generated by roxytest: Do not edit by hand!</span>
-
-<span class="fu">context</span><span class="op">(</span><span class="st">"File R/functions.R: @tests"</span><span class="op">)</span>
-
-<span class="fu">test_that</span><span class="op">(</span><span class="st">"Function foo() @ L10"</span>, <span class="op">{</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="st">"a string"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span>
-
-
-<span class="fu">test_that</span><span class="op">(</span><span class="st">"Function bar() @ L23"</span>, <span class="op">{</span>
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html" class="external-link">bar</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Generated by roxytest: Do not edit by hand!</span></span>
+<span></span>
+<span><span class="fu">context</span><span class="op">(</span><span class="st">"File R/functions.R: @tests"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"Function foo() @ L10"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">expect_error</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="st">"a string"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"Function bar() @ L23"</span>, <span class="op">{</span></span>
+<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu">bar</span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, sep <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="testexamples-tag">
@@ -213,34 +213,34 @@
 </h4>
 <p>For example, if the file <code>R/functions.R</code> contains this code (from <a href="https://github.com/mikldk/roxytestdemo" class="external-link">roxytestdemo</a>):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' A function to do w</span>
-<span class="co">#' </span>
-<span class="co">#' @param x A number</span>
-<span class="co">#' </span>
-<span class="co">#' @examples </span>
-<span class="co">#' x &lt;- 2</span>
-<span class="co">#' foo(x)</span>
-<span class="co">#' </span>
-<span class="co">#' @testexamples</span>
-<span class="co">#' expect_equal(foo(x), foo(2))</span>
-<span class="co">#' </span>
-<span class="co">#' @return something</span>
-<span class="va">foo2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' A function to do w</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @param x A number</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @examples </span></span>
+<span><span class="co">#' x &lt;- 2</span></span>
+<span><span class="co">#' foo(x)</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @testexamples</span></span>
+<span><span class="co">#' expect_equal(foo(x), foo(2))</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @return something</span></span>
+<span><span class="va">foo2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Then <code><a href="https://roxygen2.r-lib.org/reference/roxygenize.html" class="external-link">roxygen2::roxygenise()</a></code> will generate (with the <code>testthat_roclet</code> roclet) the file <code>tests/testthat/test-roxytest-testexamples-functions.R</code> with this content:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Generated by roxytest: Do not edit by hand!</span>
-
-<span class="fu">context</span><span class="op">(</span><span class="st">"File R/functions.R: @testexamples"</span><span class="op">)</span>
-
-<span class="fu">test_that</span><span class="op">(</span><span class="st">"Function foo2() @ L13"</span>, <span class="op">{</span>
-  
-  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span>
-  <span class="fu">foo</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  
-  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu">foo</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Generated by roxytest: Do not edit by hand!</span></span>
+<span></span>
+<span><span class="fu">context</span><span class="op">(</span><span class="st">"File R/functions.R: @testexamples"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">test_that</span><span class="op">(</span><span class="st">"Function foo2() @ L13"</span>, <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span>  <span class="fu">foo</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu">expect_equal</span><span class="op">(</span><span class="fu">foo</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu">foo</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p>Note that:</p>
 <ul>
 <li>
@@ -258,12 +258,12 @@
 </h3>
 <p>To demonstrate the <code>param_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Summing two numbers</span>
-<span class="co">#'</span>
-<span class="co">#' @param x A number</span>
-<span class="va">foobar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Summing two numbers</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param x A number</span></span>
+<span><span class="va">foobar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>When the package is documented, the following output will be displayed:</p>
 <pre><code>Functions with @param inconsistency:
   * Function 'foobar' with title 'Summing two numbers': 
@@ -276,14 +276,14 @@
 </h3>
 <p>To demonstrate the <code>return_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Summing two numbers</span>
-<span class="co">#'</span>
-<span class="co">#' @param x A number</span>
-<span class="co">#' </span>
-<span class="co">#' @export</span>
-<span class="va">foobar2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Summing two numbers</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param x A number</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">foobar2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>When the package is documented, the following output will be displayed:</p>
 <pre><code>Functions with @export but no @return:
   * Function 'foobar2()' with title 'Summing two numbers'</code></pre>
@@ -294,14 +294,14 @@
 </h3>
 <p>To demonstrate the <code>examples_roclet</code> roclet assume that this block of documentation exists:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#' Summing two numbers</span>
-<span class="co">#'</span>
-<span class="co">#' @param x A number</span>
-<span class="co">#' </span>
-<span class="co">#' @export</span>
-<span class="va">foobar2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#' Summing two numbers</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @param x A number</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @export</span></span>
+<span><span class="va">foobar2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>When the package is documented, the following output will be displayed:</p>
 <pre><code>Functions with @export but no @example(s):
   * Function 'foobar2()' with title 'Summing two numbers'</code></pre>
@@ -326,7 +326,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>
