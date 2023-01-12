@@ -1,5 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit only README.Rmd! -->
+
 <!-- badges: start -->
 
 [![R build
@@ -39,11 +40,11 @@ well as the vignette, all also available online at
 
 There are a number of roclets included:
 
-- `testthat_roclet`
-- `tinytest_roclet`
-- `param_roclet`
-- `return_roclet`
-- `examples_roclet`
+  - `testthat_roclet`
+  - `tinytest_roclet`
+  - `param_roclet`
+  - `return_roclet`
+  - `examples_roclet`
 
 Please refer to the
 “[Introduction](https://mikldk.github.io/roxytest/articles/introduction.html)”
@@ -61,9 +62,9 @@ of the roclets mentioned above):
 ### Document package keyboard shortcut
 
 In RStudio, `CTRL+SHIFT+D`/`CMD+SHIFT+D` option does not run
-`devtools::document()` but only
-`devtools::document(roclets=c('rd', 'collate', 'namespace'))` (possibly
-with fewer depending on the project options, but not none).
+`devtools::document()` but only `devtools::document(roclets=c('rd',
+'collate', 'namespace'))` (possibly with fewer depending on the project
+options, but not none).
 
 Instead, you can use `devtools`’ `document()`
 [addin](https://github.com/r-lib/devtools/pull/2188) (see e.g. [Rstudio
