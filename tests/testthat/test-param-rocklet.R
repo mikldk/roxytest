@@ -12,29 +12,23 @@ test_that("All good", {
   expect_null(out)
 })
 
-
 test_that("Missing documentation of both parameters", {
-  out <- capture_message(roxygen2::roc_proc_text(param_roclet(), "
+  expect_message(roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     f <- function(x, y) {
       x + y
-    }"))
-  
-  out_str <- gsub("\\[.*\\]", "", out)
-  expect_match(out_str, "Functions with @param inconsistency", fixed = TRUE)
+    }"), 
+                 "^Functions with @param inconsistency:.*")
 })
 
 test_that("Missing documentation of 'y' parameter", {
-  out <- capture_message(roxygen2::roc_proc_text(param_roclet(), "
+  expect_message(roxygen2::roc_proc_text(param_roclet(), "
     #' Summing two numbers
     #'
     #' @param x A number
     f <- function(x, y) {
       x + y
-    }"))
-  
-  out_str <- gsub("\\[.*\\]", "", out)
-  expect_match(out_str, "Functions with @param inconsistency", fixed = TRUE)
+    }"), "^Functions with @param inconsistency:.*")
 })
 
 test_that("Additional documentation for 'z' parameter", {
